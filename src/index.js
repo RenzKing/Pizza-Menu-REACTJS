@@ -50,11 +50,22 @@ function App() {
   return (
     <div>
       <h1>Hello React!</h1>
+      <Header />;
       <Pizza />;
       <Pizza />;
-      <Pizza />;
+      <Footer />;
     </div>
   );
+}
+
+function Header() {
+  return <h1>Fast React Pizza Co.</h1>;
+}
+
+function Menu() {}
+
+function Footer() {
+  return React.createElement("footer", null, "We're currently open!");
 }
 
 function Pizza() {
