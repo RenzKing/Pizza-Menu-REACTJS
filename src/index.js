@@ -57,7 +57,9 @@ function App() {
 }
 
 function Header() {
-  return <h1>Fast React Pizza Co.</h1>;
+  const style = { color: "red", fontSize: "48px", textTransform: "uppercase" };
+
+  return <h1 style={style}>Fast React Pizza Co.</h1>;
 }
 
 function Menu() {
@@ -73,6 +75,11 @@ function Menu() {
 }
 
 function Footer() {
+  const hour = new Date().getHours();
+  const openHour = 12;
+  const closeHour = 22;
+  const isOpen = hour <= openHour && hour <= closeHour;
+  console.log(isOpen);
   return (
     <footer>{new Date().toLocaleTimeString()}. We're currently open</footer>
   );
