@@ -47,6 +47,7 @@ const pizzaData = [
   },
 ];
 
+// COMPONENTS
 function App() {
   return (
     <div className="container">
@@ -58,10 +59,7 @@ function App() {
 }
 
 function Header() {
-  // const style = { color: "red", fontSize: "48px", textTransform: "uppercase" };
-
   const style = {};
-
   return (
     <header className="header">
       <h1 style={style}>Fast React Pizza Co.</h1>
@@ -132,7 +130,6 @@ function Footer() {
       )}
     </footer>
   );
-  // return React.createElement("footer", null, "We're currently open!");
 }
 
 function Order({ openHour }, { closeHour }) {
