@@ -73,11 +73,11 @@ function Menu() {
   // const pizzas = pizzaData;
   // const numPizzas = pizzas.length;
   return (
-    <div>
+    <ul className="pizzas">
       {pizzaData.map((pizza) => (
         <Pizza pizzaObj={pizza} />
       ))}
-    </div>
+    </ul>
     //   <div className="menu">
     //     <h2>Our Menu</h2>
     //     {numPizzas > 0 ? (
@@ -116,7 +116,7 @@ function Menu() {
 function Pizza(props) {
   console.log(props);
 
-  if (props.soldOut) return null;
+  if (props.pizzaObj.soldOut) return null;
 
   return (
     <li className="pizza">
@@ -137,28 +137,30 @@ function Footer() {
   const isOpen = hour <= openHour && hour <= closeHour;
   console.log(isOpen);
 
+  if (!isOpen) return <p>Closed</p>;
+
   return (
     <footer className="footer">
       {isOpen ? (
-        <Order closeHour={closeHour} and openHour={openHour} />
+        <Order closenHour={closeHour} />
       ) : (
         <p>We're open until {closeHour}:00. Come visit us or order online.</p>
       )}
     </footer>
   );
   // return React.createElement("footer", null, "We're currently open!");
+}
 
-  function Order({ closeHour, openHour }) {
-    return (
-      <div className="order">
-        <p>
-          We're open from {openHour}:00. to {closeHour}:00. Cone visit us or
-          order online.
-        </p>
-        <button className="btn">Order</button>
-      </div>
-    );
-  }
+function Order(props) {
+  return (
+    <div className="order">
+      <p>
+        We're open from {props.openHour}:00. to {props.closeHour}:00. Come visit
+        us or order online.
+      </p>
+      <button className="btn">Order</button>
+    </div>
+  );
 }
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
